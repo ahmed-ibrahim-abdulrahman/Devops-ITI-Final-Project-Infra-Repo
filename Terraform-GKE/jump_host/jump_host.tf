@@ -6,7 +6,7 @@ resource "google_service_account" "jump_host_sa" {
 
 resource "google_project_iam_binding" "jump_host_sa_binding" {
   project = "ahmed-ibrahim-project"
-  role    = "roles/container.developer"
+  role    = "roles/container.admin"
 
   members = [
     "serviceAccount:${google_service_account.jump_host_sa.email}"
