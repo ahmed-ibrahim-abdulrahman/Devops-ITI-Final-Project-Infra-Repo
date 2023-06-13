@@ -41,9 +41,15 @@ RUN curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm
 # Install Java
 RUN apt-get update && apt-get install -y openjdk-11-jdk && rm -rf /var/lib/apt/lists/*
 
-# Install Maven
-RUN apt-get update && apt-get install -y maven
-
+# Install Google Cloud SDK and authenticate with GKE cluster
+RUN apt-get update
+RUN apt install apt-transport-https ca-certificates gnupg -y
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN apt update
+RUN apt-get update && sudo apt-get install google-cloud -y
+RUN apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+Run gcloud container clusters get-credentials gke-cluster --zone=us-east1-b --project ahmed-ibrahim-project
 
 EXPOSE 22
 
