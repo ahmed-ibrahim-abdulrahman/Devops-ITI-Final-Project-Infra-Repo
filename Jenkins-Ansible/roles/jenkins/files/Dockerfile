@@ -49,7 +49,6 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.
 RUN apt update
 RUN apt-get update && apt install google-cloud-sdk
 RUN apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
-RUN gcloud container clusters get-credentials gke-cluster --zone=us-east1-b --project ahmed-ibrahim-project
 
 EXPOSE 22
 
