@@ -1,0 +1,4 @@
+- name: play
+  hosts: [jump-host]
+  roles:
+    - jenkins

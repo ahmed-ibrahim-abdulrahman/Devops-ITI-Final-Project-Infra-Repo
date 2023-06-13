@@ -1,0 +1,24 @@
+zone: us-east1-b
+vm: jump-host
+project: ahmed-ibrahim-project
+cluster_name: gke-cluster
+
+
+
+file_list:
+  - jenkins-namespace.yaml 
+  - service-account.yaml
+  - binding-cluster-role.yaml
+  - cluster-ip.yaml
+  - cluster-role.yaml
+  - jenkins-pvc.yaml
+  - jenkins.yaml
+  - loadbalancer.yaml
+  - slave-deploy.yaml
+  - slave-svc.yaml
+  - storage-class.yaml
+
+
+
+
+

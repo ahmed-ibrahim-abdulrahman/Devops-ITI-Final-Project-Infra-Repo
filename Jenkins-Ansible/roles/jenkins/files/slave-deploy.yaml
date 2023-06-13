@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-ubuntu-slave
+  namespace: jenkins
+  labels:
+    app: jenkins-ubuntu-slave
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-ubuntu-slave
+  template:
+    metadata:
+      labels:
+        app: jenkins-ubuntu-slave
+    spec:
+      serviceAccountName: jenkins-deployer
+      automountServiceAccountToken: true
+      securityContext:
+            fsGroup: 0 
+            runAsUser: 0
+      containers:
+      - name: jenkins-ubuntu-slave
+        image: ahmedibrahimcs/jenkins-slave:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 22
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+      volumes:
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock

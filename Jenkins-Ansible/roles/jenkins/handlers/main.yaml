@@ -1,0 +1,3 @@
+- name: Connect to GKE
+  command:
+    gcloud container clusters get-credentials {{cluster_name}} --zone {{zone}} --project {{project}}

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jenkins-ubuntu-slave-svc
+  namespace: jenkins
+spec:
+  selector:
+    app: jenkins-ubuntu-slave
+  ports:
+  - protocol: TCP
+    port: 22
+    targetPort: 22

@@ -1,0 +1,11 @@
+    - name: Copy files  
+      copy:
+        src: "{{ item }}"
+        dest: "/tmp/{{ item }}"
+      loop: "{{ file_list }}"
+      notify: 
+          - Connect to GKE
+
+    - name: Apply manifests   
+      shell: kubectl apply -f /tmp/{{ item }}
+      loop: "{{ file_list }}"
