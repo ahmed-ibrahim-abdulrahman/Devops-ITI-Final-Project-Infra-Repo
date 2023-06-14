@@ -1,5 +1,4 @@
 zone: us-east1-b
-vm: jump-host
 project: ahmed-ibrahim-project
 cluster_name: gke-cluster
 
