@@ -1,11 +1,13 @@
-    - name: Copy files  
-      copy:
-        src: "{{ item }}"
-        dest: "/tmp/{{ item }}"
-      loop: "{{ file_list }}"
-      # notify: 
-      #     - Connect to GKE
+- name: Connect to GKE
+  shell:
+    gcloud container clusters get-credentials {{cluster_name}} --zone {{zone}} --project {{project}}
 
-    - name: Apply manifests   
-      shell: kubectl apply -f /tmp/{{ item }}
-      loop: "{{ file_list }}"
+- name: Copy files
+  copy:
+    src: "{{ item }}"
+    dest: "/tmp/{{ item }}"
+  loop: "{{ file_list }}"
+
+- name: Apply manifests
+  shell: kubectl apply -f /tmp/{{ item }}
+  loop: "{{ file_list }}"
