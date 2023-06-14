@@ -10,7 +10,6 @@ The jump host can be accessed via **SSH** from my laptop using **Identity-Aware 
 
 A **Jenkins CI/CD pipeline** is created with four parameters: `release`, `dev`, `test`, and `prod`. The pipeline is responsible for building a Docker image of the application and pushing it to Docker Hub during the build stage. I also created deployment files for the app using **Helm**. The application is then deployed using Helm during the deployment stage, ensuring a seamless integration and deployment process.
 
-[Devops-ITI-Final-Project-App-Repo](https://github.com/AhmedIbrahim-CS/Devops-ITI-Final-Project-App-Repo.git)
 
 
 1. Run `terraform init` and `terraform apply` to create the necessary infrastructure on GCP.
@@ -170,3 +169,6 @@ A **Jenkins CI/CD pipeline** is created with four parameters: `release`, `dev`, 
 - **nat_gateway:** Creates a router and NAT.
 - **subnet:** Creates a subnetwork with a specified name, IP address range, and enabled private IP access to Google services.
 - **vpc:** Creates a network with a specified name, routing mode, and automatic subnetwork creation is false.
+
+
+[Devops-ITI-Final-Project-App-Repo](https://github.com/AhmedIbrahim-CS/Devops-ITI-Final-Project-App-Repo.git)
