@@ -6,7 +6,7 @@ The project involves setting up a **Continuous Integration and Continuous Deploy
 
 The jump host can be accessed via **SSH** from my laptop using **Identity-Aware Proxy (IAP)**, which allows connection to the private GKE cluster. The Terraform state file is stored in a GCP bucket using a backend.
 
-**Jenkins master and slave nodes** are set up within the GKE cluster using **Ansible**. To achieve this, I modified `ansible.cfg` to tell Ansible to use IAP to connect to the jump host through IAP and apply the YAML files.
+**Jenkins master and slave pods** are set up within the GKE cluster using **Ansible**. To achieve this, I modified `ansible.cfg` to tell Ansible to use IAP to connect to the jump host through IAP and apply the YAML files.
 
 A **Jenkins CI/CD pipeline** is created with four parameters: `release`, `dev`, `test`, and `prod`. The pipeline is responsible for building a Docker image of the application and pushing it to Docker Hub during the build stage. I also created deployment files for the app using **Helm**. The application is then deployed using Helm during the deployment stage, ensuring a seamless integration and deployment process.
 
